@@ -54,6 +54,9 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
+" Open splits (including the Scratch) window below/to the right of the current one
+set splitbelow splitright
+
 " Use whole "words" when opening URLs.
 " This avoids cutting off parameters (after '?') and anchors (after '#'). 
 " See http://vi.stackexchange.com/q/2801/1631
@@ -64,7 +67,9 @@ set fillchars=vert:\│
 au BufNewFile,BufRead Dockerfile* setf dockerfile
 au FileType javascript,html,css setl ts=2 sw=2 sts=2 et
 au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au FileType python set foldmethod=indent foldlevel=99
+au FileType python set foldmethod=indent foldlevel=99 colorcolumn=80
+au FileType python compiler pyunit
+au FileType python set makeprg=python3\ %
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Work around bug breaking jedi-vim on Mac OSX
 if has('unix')
