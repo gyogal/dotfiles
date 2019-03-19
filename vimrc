@@ -1,7 +1,10 @@
+set nocompatible
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 filetype plugin on
 filetype indent on
 
-set nocompatible
 set wildmenu
 set ruler
 set title
