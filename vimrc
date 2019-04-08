@@ -70,7 +70,7 @@ set fillchars=vert:\│
 au BufNewFile,BufRead Dockerfile* setf dockerfile
 au FileType javascript,html,css setl ts=2 sw=2 sts=2 et
 au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au FileType python set foldmethod=indent foldlevel=99 colorcolumn=80
+au FileType python setl foldmethod=indent foldlevel=99 colorcolumn=80
 au FileType python compiler pyunit
 au FileType python set makeprg=python3\ %
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
@@ -203,4 +203,9 @@ set updatetime=200
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path_html': '~/tmp/vimwiki_html/', 'path': '~/vimwiki', 'custom_wiki2html': '~/vimwiki/wiki2html.sh', "css_name": 'wiki2html.css'}]
 let g:markdown_fenced_languages = ['sh', 'html', 'xml', 'sql']
 nmap <Leader>x <Plug>VimwikiToggleListItem
+
+" ale
+let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8']}
+let g:ale_python_flake8_options = '--ignore=E501'  " ignore 'line too long' errors
 

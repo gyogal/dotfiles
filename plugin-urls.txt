@@ -9,4 +9,5 @@ https://github.com/tpope/vim-surround.git
 https://github.com/ludovicchabant/vim-gutentags.git
 https://github.com/davidhalter/jedi-vim.git
 https://github.com/Glench/Vim-Jinja2-Syntax.git
+https://github.com/w0rp/ale.git
 
