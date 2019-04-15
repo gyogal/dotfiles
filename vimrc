@@ -14,10 +14,14 @@ set lazyredraw
 set ignorecase
 set smartcase
 set hlsearch
-set incsearch 
+set incsearch
 
-set showmatch 
+set showmatch
 set mat=2
+
+" Show tabs and trailing spaces
+set list
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 set noerrorbells
 set novisualbell
@@ -61,16 +65,20 @@ endif
 set splitbelow splitright
 
 " Use whole "words" when opening URLs.
-" This avoids cutting off parameters (after '?') and anchors (after '#'). 
+" This avoids cutting off parameters (after '?') and anchors (after '#').
 " See http://vi.stackexchange.com/q/2801/1631
-let g:netrw_gx="<cWORD>"   
+let g:netrw_gx="<cWORD>"
 nnoremap <leader>ev :split $MYVIMRC<cr>
 set fillchars=vert:\│
 
 au BufNewFile,BufRead Dockerfile* setf dockerfile
 au FileType javascript,html,css setl ts=2 sw=2 sts=2 et
 au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au FileType python setl foldmethod=indent foldlevel=99 colorcolumn=80
+au FileType python setl foldmethod=indent foldlevel=99
+" Unlike colorcolumn, the following will only higlight the 81th character and
+" not the whole column
+au FileType python highlight ColorColumn ctermbg=red
+au FileType python call matchadd('ColorColumn', '\%81v', 100)
 au FileType python compiler pyunit
 au FileType python set makeprg=python3\ %
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
