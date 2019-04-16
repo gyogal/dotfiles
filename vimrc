@@ -42,6 +42,10 @@ set mouse=a
 " eg. when extending export MYFILE=/bin/bash
 set isfname-==
 
+" I like the default completeopt setting, but jedi-vim
+" will override it if we don't set it here
+set completeopt=menu,preview
+
 " Timeout for leader key
 set timeoutlen=2000
 set number relativenumber
@@ -77,7 +81,8 @@ au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while
 au FileType python setl foldmethod=indent foldlevel=99
 " Unlike colorcolumn, the following will only higlight the 81th character and
 " not the whole column
-au FileType python highlight ColorColumn ctermbg=red
+au FileType java,python highlight ColorColumn ctermbg=red
+au FileType java call matchadd('ColorColumn', '\%101v', 100)
 au FileType python call matchadd('ColorColumn', '\%81v', 100)
 au FileType python compiler pyunit
 au FileType python set makeprg=python3\ %
@@ -210,6 +215,8 @@ set updatetime=200
 " vimwiki
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path_html': '~/tmp/vimwiki_html/', 'path': '~/vimwiki', 'custom_wiki2html': '~/vimwiki/wiki2html.sh', "css_name": 'wiki2html.css'}]
 let g:markdown_fenced_languages = ['sh', 'html', 'xml', 'sql']
+let g:vimwiki_folding = 'expr'
+autocmd FileType vimwiki setl foldlevel=99
 nmap <Leader>x <Plug>VimwikiToggleListItem
 
 " ale
