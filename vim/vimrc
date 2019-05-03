@@ -65,9 +65,6 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-" Open splits (including the Scratch) window below/to the right of the current one
-set splitbelow splitright
-
 " Use whole "words" when opening URLs.
 " This avoids cutting off parameters (after '?') and anchors (after '#').
 " See http://vi.stackexchange.com/q/2801/1631
@@ -218,6 +215,11 @@ let g:markdown_fenced_languages = ['sh', 'html', 'xml', 'sql']
 let g:vimwiki_folding = 'expr'
 autocmd FileType vimwiki setl foldlevel=99
 nmap <Leader>x <Plug>VimwikiToggleListItem
+" Don't let vimwiki remap +, - and Ctrl-I (along with Tab) in normal mode
+nmap <Leader>+ <Plug>VimwikiNormalizeLink
+vmap <Leader>+ <Plug>VimwikiNormalizeLinkVisual
+nmap <Leader>- <Plug>VimwikiRemoveHeaderLevel
+nmap <Leader>wn <Plug>VimwikiNextLink
 
 " ale
 let g:ale_linters = {'python': ['flake8', 'pylint']}
