@@ -37,6 +37,10 @@ set smarttab
 set ai si
 
 set mouse=a
+if &term =~ '^screen'
+  " tmux supports extended mouse mode - this fixes mouse drag
+  set ttymouse=xterm2
+endif
 
 " C-X C-F filename completion should ignore '=' character
 " eg. when extending export MYFILE=/bin/bash
