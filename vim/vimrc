@@ -228,4 +228,8 @@ let g:ale_python_flake8_options = '--ignore=E501'  " ignore 'line too long' erro
 
 " fzf
 set rtp+=/usr/local/opt/fzf
+nnoremap <C-p> :Files<Cr>
+
+" tagbar
+nnoremap <F3> :TagbarToggle<CR><C-w>w
 
