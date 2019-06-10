@@ -1,6 +1,8 @@
 # Exports {{{
 export EDITOR="vim"
 export PAGER="less"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*'"
+export FZF_DEFAULT_OPTS='--height 40%'
 # }}}
 
 # Colors {{{
@@ -77,6 +79,12 @@ zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_color%} "
+# }}}
+
+# Local settings {{{
+if [[ -f ~/.zshrc.local ]]; then
+    . ~/.zshrc.local
+fi
 # }}}
 
 # vim: foldmethod=marker foldlevel=0
