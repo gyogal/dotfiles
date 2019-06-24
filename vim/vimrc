@@ -137,6 +137,8 @@ let g:mapleader = " "
 map <leader>n :setlocal number!<cr>
 map <leader>r :setlocal rnu!<cr>
 map <leader>l :setlocal list!<cr>
+" Format json
+map <leader>jj :%!jq<cr>:set foldmethod=indent<cr>:set syntax=json<cr>
 
 " Follow tags on Hungarian keyboard
 nnoremap <C-ú> <C-]>

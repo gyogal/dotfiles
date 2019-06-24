@@ -58,6 +58,10 @@ bindkey -e
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
+
+# Make Alt-Backspace work the same way as in bash
+autoload -U select-word-style
+select-word-style bash
 # }}}
 
 # Completion {{{
