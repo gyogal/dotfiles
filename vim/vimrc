@@ -140,6 +140,14 @@ map <leader>l :setlocal list!<cr>
 " Format json
 map <leader>jj :%!jq<cr>:set foldmethod=indent<cr>:set syntax=json<cr>
 
+" Shortcuts for 3-way merge
+map <Leader>1 :diffget LOCAL<CR>
+map <Leader>2 :diffget BASE<CR>
+map <Leader>3 :diffget REMOTE<CR>
+if has("patch-8.1.0360")
+  set diffopt+=internal,algorithm:patience
+endif
+
 " Follow tags on Hungarian keyboard
 nnoremap <C-ú> <C-]>
 " Use Ctrl-A to go to the beginning of the command line instead of Ctrl-B
