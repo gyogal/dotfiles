@@ -52,7 +52,7 @@ set completeopt=menu,preview
 
 " Timeout for leader key
 set timeoutlen=2000
-set number relativenumber
+set number
 
 set tags=tags;/
 
