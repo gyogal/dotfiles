@@ -37,7 +37,10 @@ SAVEHIST=10000
 
 setopt \
     append_history \
+    auto_list \
     auto_menu \
+    hist_ignore_all_dups \
+    hist_reduce_blanks \
     inc_append_history \
     long_list_jobs \
     no_beep \
@@ -67,6 +70,19 @@ select-word-style bash
 # Completion {{{
 zstyle ':completion:*:*:*:*:*' menu select
 autoload -Uz compinit && compinit -u
+
+sourceifexists() { [[ -f "$1" ]] && . "$1" }
+
+sourceifexists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+sourceifexists /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Use up and down keys to search history
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 # }}}
 
 # Prompt {{{
@@ -86,9 +102,7 @@ zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_col
 # }}}
 
 # Local settings {{{
-if [[ -f ~/.zshrc.local ]]; then
-    . ~/.zshrc.local
-fi
+sourceifexists ~/.zshrc.local
 # }}}
 
 # vim: foldmethod=marker foldlevel=0
