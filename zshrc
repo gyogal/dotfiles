@@ -62,9 +62,16 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
-# Make Alt-Backspace work the same way as in bash
-autoload -U select-word-style
-select-word-style bash
+# Ctrl-W, Alt-Backspace, Alt-B, Alf-F should work just like in bash
+backward-kill-full-word () {
+    local WORDCHARS="${WORDCHARS}/"
+    zle backward-kill-word
+}
+zle -N backward-kill-full-word
+bindkey '^W' backward-kill-full-word
+
+WORDCHARS=${WORDCHARS/\/}
+
 # }}}
 
 # Completion {{{
@@ -83,6 +90,9 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
 bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+# The following two are for iTerm2
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 # }}}
 
 # Prompt {{{

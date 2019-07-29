@@ -13,3 +13,4 @@ git config --global color.status always
 
 git config --global alias.l 'log --pretty=format:"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cd)%Creset %C(green)%an, %cn%Creset %s"'
 git config --global alias.co checkout
+git config --global alias.st status
