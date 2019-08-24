@@ -5,4 +5,5 @@ cp "$SRCDIR"/tmux.conf ~/.tmux.conf
 cp "$SRCDIR"/zshrc ~/.zshrc
 
 mkdir -p ~/.config/mpv
-cp "$SRCDIR"/mpv_input.conf ~/.config/mpv
+cp "$SRCDIR"/mpv.conf ~/.config/mpv/
+cp "$SRCDIR"/mpv_input.conf ~/.config/mpv/input.conf
