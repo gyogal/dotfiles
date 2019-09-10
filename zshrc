@@ -111,6 +111,11 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_color%} "
 # }}}
 
+# Aliases {{{
+alias wttr='curl http://wttr.in/'
+alias wttr2='curl http://v2.wttr.in/'
+# }}}
+
 # Local settings {{{
 sourceifexists ~/.zshrc.local
 # }}}

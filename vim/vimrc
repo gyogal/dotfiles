@@ -168,8 +168,8 @@ endif
 
 " Load extra settings for work {{{
 
-if filereadable(expand('$HOME/.vim/vimrc-extra'))
-  exe 'source' expand('$HOME/.vim/vimrc-extra')
+if filereadable(expand('$HOME/.vim/vimrc.local'))
+  exe 'source' expand('$HOME/.vim/vimrc.local')
 endif
 
 " }}}
@@ -237,7 +237,7 @@ let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path_html': '~/tmp/v
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:markdown_fenced_languages = ['sh', 'html', 'xml', 'sql']
 let g:vimwiki_folding = 'expr'
-autocmd FileType vimwiki setl foldlevel=99
+autocmd FileType vimwiki setl foldlevel=99 tw=80
 nmap <Leader>x <Plug>VimwikiToggleListItem
 " Don't let vimwiki remap +, - and Ctrl-I (along with Tab) in normal mode
 nmap <Leader>+ <Plug>VimwikiNormalizeLink
