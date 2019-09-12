@@ -101,14 +101,19 @@ precmd_vcs_info() {
     vcs_info
 }
 precmd_functions+=( precmd_vcs_info )
-PROMPT="%{$fg[green]%}%~%{$reset_color%} "
-RPROMPT="\$vcs_info_msg_0_"
+
+PROMPT_SYMBOL="❯"
+
+PROMPT="%{$fg[green]%}%~"
+PROMPT="$PROMPT\${vcs_info_msg_0_:+ \$vcs_info_msg_0_}"  # Git status
+PROMPT="$PROMPT%(?.. $fg[red][%?])"  # Return value if nonzero
+PROMPT="$PROMPT $fg[yellow]$PROMPT_SYMBOL%{$reset_color%} "
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+zstyle ':vcs_info:*' stagedstr ' %F{green}●%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{yellow}●%f'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%} %m%u%c%{$reset_color%} "
+zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%}"
 # }}}
 
 # Aliases {{{
