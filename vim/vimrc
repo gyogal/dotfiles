@@ -8,7 +8,8 @@ set wildmenu
 set ruler
 set title
 set history=500
-set lazyredraw 
+set lazyredraw
+set cursorline
 
 set ignorecase
 set smartcase
