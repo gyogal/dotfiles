@@ -8,12 +8,15 @@ git config --global mergetool.keepBackup false
 git config --global diff.tool vimdiff
 git config --global difftool.prompt true
 
-git config --global color.branch always
-git config --global color.diff always
-git config --global color.interactive always
+git config --global color.branch auto
+git config --global color.diff auto
+git config --global color.interactive auto
 git config --global color.pager true
-git config --global color.status always
+git config --global color.status auto
 
-git config --global alias.l 'log --pretty=format:"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cd)%Creset %C(green)%an, %cn%Creset %s"'
+git config --global alias.l "log --pretty=format:\"%C(yellow)%h%Creset%C(red)%C(bold)%d %C(green)%ai %C(cyan)%an%C(green), %ci %C(cyan)%cn%Creset %s\""
 git config --global alias.co checkout
 git config --global alias.st status
+
+git config --global core.pager 'less -FRX'
+
