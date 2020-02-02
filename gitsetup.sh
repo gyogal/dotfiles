@@ -15,8 +15,8 @@ git config --global color.pager true
 git config --global color.status auto
 
 git config --global alias.l "log --pretty=format:\"%C(yellow)%h%Creset%C(red)%C(bold)%d %C(green)%ai %C(cyan)%an%C(green), %ci %C(cyan)%cn%Creset %s\""
-git config --global alias.co checkout
-git config --global alias.st status
+git config --global alias.d difftool
 
 git config --global core.pager 'less -FRX'
+git config --global core.excludesfile '~/.gitignore_global'
 

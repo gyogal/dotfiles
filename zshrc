@@ -83,6 +83,11 @@ sourceifexists() { [[ -f "$1" ]] && . "$1" }
 sourceifexists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 sourceifexists /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+sourceifexists ~/bin/fzf/shell/completion.zsh
+
+sourceifexists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+sourceifexists /usr/local/Cellar/zsh-syntax-highlighting/0.6.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Use up and down keys to search history
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
