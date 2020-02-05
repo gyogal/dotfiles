@@ -20,5 +20,33 @@
     "gitlens.codeLens.recentChange.enabled": false,
     "workbench.enableExperiments": false,
     "editor.cursorSurroundingLines": 5,
-    "vim.foldfix": true
+    "vim.foldfix": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["[", "c"],
+            "commands": [
+                "workbench.action.editor.previousChange"
+            ]
+        },
+        {
+            "before": ["]", "c"],
+            "commands": [
+                "workbench.action.editor.nextChange"
+            ]
+        },
+        {
+            "before": ["[", "x"],
+            "commands": [
+                "merge-conflict.previous"
+            ]
+        },
+        {
+            "before": ["]", "x"],
+            "commands": [
+                "merge-conflict.next"
+            ]
+        }
+    ],
+    "vim.useCtrlKeys": true,
+    "editor.minimap.enabled": false
 }
