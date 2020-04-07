@@ -114,6 +114,7 @@ syntax enable
 set t_Co=256
 
 try
+    let g:gruvbox_italic=1
     colorscheme gruvbox
 catch
 endtry

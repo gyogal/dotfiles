@@ -13,3 +13,7 @@ cp "$SRCDIR"/vscode/settings.json ~/.config/Code/User/ 2> /dev/null
 mkdir -p ~/.config/mpv
 cp "$SRCDIR"/mpv.conf ~/.config/mpv/
 cp "$SRCDIR"/mpv_input.conf ~/.config/mpv/input.conf
+
+# Setup italics in tmux
+tic -o ~/.terminfo "$SRCDIR"/tmux-256color.terminfo.txt
+tic -o ~/.terminfo "$SRCDIR"/tmux.terminfo.txt
