@@ -261,7 +261,7 @@ let g:ale_python_flake8_options = '--ignore=E501'  " ignore 'line too long' erro
 
 " fzf {{{
 
-set rtp+=/usr/local/opt/fzf
+set runtimepath+=/usr/local/opt/fzf,/usr/share/doc/fzf/examples
 nnoremap <C-p> :Files<Cr>
 
 " }}}
