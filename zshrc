@@ -80,13 +80,17 @@ autoload -Uz compinit && compinit -u
 
 sourceifexists() { [[ -f "$1" ]] && . "$1" }
 
-sourceifexists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-sourceifexists /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+# OSX
+sourceifexists ~/bin/fzf/shell/key-bindings.zsh
 sourceifexists ~/bin/fzf/shell/completion.zsh
+sourceifexists /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+sourceifexists /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Ubuntu
+sourceifexists /usr/share/doc/fzf/examples/key-bindings.zsh
+sourceifexists /usr/share/doc/fzf/examples/completion.zsh
+sourceifexists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 sourceifexists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-sourceifexists /usr/local/Cellar/zsh-syntax-highlighting/0.6.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Use up and down keys to search history
 autoload -U up-line-or-beginning-search
