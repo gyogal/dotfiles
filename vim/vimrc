@@ -143,19 +143,23 @@ endif
 let mapleader = " "
 let g:mapleader = " "
 
-map <leader>n :setlocal number!<cr>
-map <leader>r :setlocal rnu!<cr>
-map <leader>l :setlocal list!<cr>
+nnoremap <leader>n :setlocal number!<cr>
+nnoremap <leader>r :setlocal rnu!<cr>
+nnoremap <leader>l :setlocal list!<cr>
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 
 " Format json
-map <leader>jj :%!jq<cr>:set foldmethod=indent<cr>:set syntax=json<cr>
+nnoremap <leader>jj :%!jq<cr>:set foldmethod=indent<cr>:set syntax=json<cr>
 
 " Shortcuts for 3-way merge
-map <Leader>1 :diffget LOCAL<CR>
-map <Leader>2 :diffget BASE<CR>
-map <Leader>3 :diffget REMOTE<CR>
+nnoremap <Leader>1 :diffget LOCAL<CR>
+nnoremap <Leader>2 :diffget BASE<CR>
+nnoremap <Leader>3 :diffget REMOTE<CR>
+
+" Jump to next/previous git conflict marker
+nnoremap ]x /^\(<\{7\}\\|>\{7\}\\|=\{7\}\\|\|\{7\}\)\( \\|$\)<cr>
+nnoremap [x ?^\(<\{7\}\\|>\{7\}\\|=\{7\}\\|\|\{7\}\)\( \\|$\)<cr>
 
 " Follow tags on Hungarian keyboard
 nnoremap <C-ú> <C-]>
