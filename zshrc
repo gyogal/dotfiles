@@ -92,6 +92,12 @@ sourceifexists /usr/share/doc/fzf/examples/completion.zsh
 sourceifexists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 sourceifexists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Manjaro
+sourceifexists /usr/share/fzf/key-bindings.zsh
+sourceifexists /usr/share/fzf/completion.zsh
+sourceifexists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+sourceifexists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Use up and down keys to search history
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
