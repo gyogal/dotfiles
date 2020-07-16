@@ -12,6 +12,7 @@ cp "$SRCDIR"/vscode/settings.json ~/.config/Code/User/ 2> /dev/null
 
 mkdir -p ~/.config/mc
 cp "$SRCDIR"/mc.ini ~/.config/mc/ini
+cp "$SRCDIR"/mc.keymap ~/.config/mc/mc.keymap
 
 mkdir -p ~/.config/mpv
 cp "$SRCDIR"/mpv.conf ~/.config/mpv/
