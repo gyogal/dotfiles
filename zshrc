@@ -146,6 +146,7 @@ zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_colo
 alias wttr='curl http://wttr.in/'
 alias wttr2='curl http://v2.wttr.in/'
 alias ssh='TERM=xterm-color ssh'
+alias mc='mc -x'
 # }}}
 
 # Local settings {{{
