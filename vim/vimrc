@@ -240,10 +240,11 @@ set updatetime=200
 
 " vimwiki {{{
 
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path_html': '~/tmp/vimwiki_html/', 'path': '~/vimwiki', 'custom_wiki2html': '~/vimwiki/wiki2html.sh', "css_name": 'wiki2html.css'}]
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path_html': '~/tmp/vimwiki_html/', 'path': '~/vimwiki', 'custom_wiki2html': '~/vimwiki/wiki2html.sh', 'css_name': 'wiki2html.css', 'auto_diary_index': 1}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:markdown_fenced_languages = ['sh', 'html', 'xml', 'sql']
 let g:vimwiki_folding = 'expr'
+let g:vimwiki_auto_header = 1
 autocmd FileType vimwiki setl foldlevel=99 wrap et
 nmap <Leader>x <Plug>VimwikiToggleListItem
 " Don't let vimwiki remap +, - and Ctrl-I (along with Tab) in normal mode
