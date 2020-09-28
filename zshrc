@@ -72,6 +72,9 @@ bindkey '^W' backward-kill-full-word
 
 WORDCHARS=${WORDCHARS/\/}
 
+# Ctrl-U should work just like in bash
+bindkey '^U' backward-kill-line
+
 # }}}
 
 # Completion {{{
@@ -116,10 +119,10 @@ precmd_vcs_info() {
     vcs_info
 }
 virtenv_indicator() {
-    if [[ -z $VIRTUAL_ENV ]] then
-        psvar[1]=''
+    if [[ -z "$VIRTUAL_ENV" ]] then
+        psvar[1]=""
     else
-        psvar[1]=${VIRTUAL_ENV##*/}
+        psvar[1]="${VIRTUAL_ENV##*/}"
     fi
 }
 precmd_functions+=( precmd_vcs_info; virtenv_indicator )
@@ -130,7 +133,7 @@ PROMPT_SYMBOL="❯"
 PROMPT_NEWLINE=$'\n'
 
 PROMPT="$PROMPT_NEWLINE%{$fg[green]%}%~"
-PROMPT="$PROMPT$fg[grey]%(1V. (%1v).)"  # Virtualenv
+PROMPT="$PROMPT$fg[cyan]%(1V. (%1v).)"  # Virtualenv
 PROMPT="$PROMPT\${vcs_info_msg_0_:+ \$vcs_info_msg_0_}"  # Git status
 PROMPT="$PROMPT%(?.. $fg[red][%?])"  # Return value if nonzero
 PROMPT="$PROMPT$fg_bold[yellow]$PROMPT_NEWLINE$PROMPT_SYMBOL%{$reset_color%} "
