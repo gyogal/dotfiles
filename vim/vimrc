@@ -82,7 +82,15 @@ endif
 filetype plugin on
 filetype indent on
 
+function! MyJsonFoldText()
+    let nl = v:foldend - v:foldstart + 1
+    let linetext = substitute(join(getline(v:foldstart, v:foldstart + 2), ' '), '\s\+', ' ', 'g')
+    let txt = '+-- ' . linetext . '... (' . nl . ' lines)'
+    return txt
+endfunction
+
 au BufNewFile,BufRead Dockerfile* setf dockerfile
+au FileType json setl foldmethod=syntax foldlevel=1 foldtext=MyJsonFoldText()
 au FileType vim setl foldmethod=marker
 au FileType javascript,html,css setl ts=2 sw=2 sts=2 et
 au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
