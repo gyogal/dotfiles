@@ -3,3 +3,5 @@ set showmode
 set surround
 set commentary
 nnoremap <C-6> <C-S-6>
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
