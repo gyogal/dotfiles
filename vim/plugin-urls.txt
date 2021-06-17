@@ -8,5 +8,6 @@ https://github.com/tpope/vim-repeat.git
 https://github.com/airblade/vim-gitgutter.git
 https://github.com/vimwiki/vimwiki.git
 https://github.com/junegunn/fzf.vim.git
-https://github.com/dzeban/vim-log-syntax.git
+https://github.com/MTDL9/vim-log-highlighting.git
+https://github.com/neoclide/coc.nvim.git
 

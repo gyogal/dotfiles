@@ -37,7 +37,7 @@ set smarttab
 set ai si
 
 set mouse=a
-if &term =~ '^screen'
+if &term =~ '^screen' || &term =~ "^tmux"
   " tmux supports extended mouse mode - this fixes mouse drag
   set ttymouse=xterm2
 endif
@@ -49,6 +49,9 @@ set isfname-==
 " I like the default completeopt setting, but jedi-vim
 " will override it if we don't set it here
 set completeopt=menu,preview
+
+" Don't show "match 1 of 2" etc. in |ins-completion-menu|.
+set shortmess+=c
 
 " Timeout for leader key
 set timeoutlen=2000
@@ -73,6 +76,11 @@ set fillchars=vert:\│
 
 if has("patch-8.1.0360")
   set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
+
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
 endif
 
 " }}}
@@ -114,14 +122,7 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 syntax enable
 
 set t_Co=256
-
-try
-    let g:gruvbox_italic=1
-    colorscheme gruvbox
-catch
-endtry
-
-set background=dark
+color morning
 
 " Set extra options when running in GUI mode
 if has('win32')
@@ -206,7 +207,6 @@ let g:lightline = {
   \     'gitgutter': 'MyGitGutter',
   \     'fugitive': 'fugitive#head'
   \   },
-  \   'colorscheme': 'gruvbox'
   \ }
 set noshowmode
 set laststatus=2
@@ -300,6 +300,12 @@ let g:fzf_action = {
 " tagbar {{{
 
 nnoremap <F9> :TagbarToggle<CR><C-w>w
+
+" }}}
+
+" coc.nvim {{{
+
+let g:coc_start_at_startup = v:false
 
 " }}}
 
