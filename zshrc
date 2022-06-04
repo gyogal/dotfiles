@@ -136,6 +136,7 @@ PROMPT="$PROMPT_NEWLINE%{$fg[green]%}%~"
 PROMPT="$PROMPT$fg[cyan]%(1V. (%1v).)"  # Virtualenv
 PROMPT="$PROMPT\${vcs_info_msg_0_:+ \$vcs_info_msg_0_}"  # Git status
 PROMPT="$PROMPT%(?.. $fg[red][%?])"  # Return value if nonzero
+PROMPT="$PROMPT$fg[yellow]%(1j. (%j).)"  # Number of background jobs
 PROMPT="$PROMPT$fg_bold[yellow]$PROMPT_NEWLINE$PROMPT_SYMBOL%{$reset_color%} "
 
 zstyle ':vcs_info:*' enable git
@@ -149,7 +150,7 @@ zstyle ':vcs_info:*' formats "%{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_colo
 alias wttr='curl http://wttr.in/'
 alias wttr2='curl http://v2.wttr.in/'
 alias ssh='TERM=xterm-color ssh'
-alias mc='mc -x'
+alias gr='cd $(git rev-parse --show-toplevel)'
 # }}}
 
 # Local settings {{{

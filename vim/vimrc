@@ -1,8 +1,11 @@
 " General settings {{{
 
 set nocompatible
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
+
+if !has('nvim')
+  unlet! skip_defaults_vim
+  source $VIMRUNTIME/defaults.vim
+endif
 
 set wildmenu
 set ruler
@@ -32,7 +35,7 @@ set nobackup
 set nowb
 set directory=$HOME/.vim/swapfiles//
 
-set ts=4 sw=4 sts=4 et
+set ts=8 sw=2 sts=2 et
 set smarttab
 set ai si
 
@@ -92,19 +95,26 @@ filetype indent on
 
 function! MyJsonFoldText()
     let nl = v:foldend - v:foldstart + 1
-    let linetext = substitute(join(getline(v:foldstart, v:foldstart + 2), ' '), '\s\+', ' ', 'g')
-    let txt = '+-- ' . linetext . '... (' . nl . ' lines)'
+    " Concatenate lines
+    let concattext = join(getline(v:foldstart, v:foldstart + 2), ' ')
+    " Remove first 4 spaces (those will be replaced by '+-- ')
+    " so that the indentation lines up nicely
+    let linetext1 = substitute(concattext, '^\s\s\s\s', '', '')
+    " Replace multiplace spaces with single space
+    " (except for the indentation of the first line)
+    let linetext2 = substitute(linetext1, '\(\S\)\s\+', '\1 ', 'g')
+    let txt = '+-- ' . linetext2 . '... (' . nl . ' lines)'
     return txt
 endfunction
 
 au BufNewFile,BufRead Dockerfile* setf dockerfile
-au FileType json setl foldmethod=syntax foldlevel=1 foldtext=MyJsonFoldText()
+au FileType json setl foldmethod=syntax foldlevel=99 foldtext=MyJsonFoldText()
 au FileType vim setl foldmethod=marker
 au FileType javascript,html,css setl ts=2 sw=2 sts=2 et
 au FileType python setl et sw=4 ts=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au FileType python setl foldmethod=indent foldlevel=99
 au FileType xml let g:xml_syntax_folding=1
-au FileType xml setl foldmethod=syntax foldlevel=99
+au FileType xml setl foldmethod=syntax foldlevel=99 ts=2 sw=2 sts=2
 " Unlike colorcolumn, the following will only higlight the 81th character and
 " not the whole column
 au FileType java,python highlight ColorColumn ctermbg=red
@@ -122,13 +132,16 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 syntax enable
 
 set t_Co=256
-color morning
+set background=dark
+let g:gruvbox_italic=1
+silent! color gruvbox
 
 " Set extra options when running in GUI mode
 if has('win32')
     set guifont=Consolas:h14   " Win32.
 elseif has('gui_macvim')
     set guifont=Monaco:h16     " OSX.
+    let macvim_skip_colorscheme = 1
 else
     set guifont=Monospace\ 14  " Linux.
 endif
