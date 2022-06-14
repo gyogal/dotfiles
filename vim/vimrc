@@ -218,7 +218,7 @@ let g:lightline = {
   \   },
   \   'component_function': {
   \     'gitgutter': 'MyGitGutter',
-  \     'fugitive': 'fugitive#head'
+  \     'fugitive': 'FugitiveHead'
   \   },
   \ }
 set noshowmode
