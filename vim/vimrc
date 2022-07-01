@@ -8,6 +8,9 @@ if !has('nvim')
 endif
 
 set wildmenu
+if has("patch-8.1.4325")
+  set wildoptions=pum
+endif
 set ruler
 set title
 set history=500
@@ -132,9 +135,9 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 syntax enable
 
 set t_Co=256
-set background=dark
+set background=light
 let g:gruvbox_italic=1
-silent! color gruvbox
+silent! color PaperColor
 
 " Set extra options when running in GUI mode
 if has('win32')
