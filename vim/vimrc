@@ -61,7 +61,6 @@ set shortmess+=c
 
 " Timeout for leader key
 set timeoutlen=2000
-set number
 
 set tags=tags;/
 
@@ -70,8 +69,6 @@ set path+=**
 
 set backspace=indent,eol,start
 set nrformats-=octal
-
-set pastetoggle=<F2>
 
 " Use whole "words" when opening URLs.
 " This avoids cutting off parameters (after '?') and anchors (after '#').
@@ -110,6 +107,7 @@ function! MyJsonFoldText()
     return txt
 endfunction
 
+au FileType gitcommit setl spell spelllang=en_us
 au BufNewFile,BufRead Dockerfile* setf dockerfile
 au FileType json setl foldmethod=syntax foldlevel=99 foldtext=MyJsonFoldText()
 au FileType vim setl foldmethod=marker
@@ -139,6 +137,16 @@ set background=light
 let g:gruvbox_italic=1
 silent! color PaperColor
 
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'allow_bold': 1,
+  \       'allow_italic': 1,
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
+
 " Set extra options when running in GUI mode
 if has('win32')
     set guifont=Consolas:h14   " Win32.
@@ -162,9 +170,10 @@ endif
 let mapleader = " "
 let g:mapleader = " "
 
-nnoremap <leader>n :setlocal number!<cr>
-nnoremap <leader>r :setlocal rnu!<cr>
-nnoremap <leader>l :setlocal list!<cr>
+nnoremap <leader>tt :setlocal paste!<cr>
+nnoremap <leader>tn :setlocal number!<cr>
+nnoremap <leader>tr :setlocal rnu!<cr>
+nnoremap <leader>tl :setlocal list!<cr>
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 
@@ -223,6 +232,7 @@ let g:lightline = {
   \     'gitgutter': 'MyGitGutter',
   \     'fugitive': 'FugitiveHead'
   \   },
+  \   'colorscheme': 'Tomorrow'
   \ }
 set noshowmode
 set laststatus=2
