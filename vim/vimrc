@@ -170,7 +170,7 @@ endif
 let mapleader = " "
 let g:mapleader = " "
 
-nnoremap <leader>tt :setlocal paste!<cr>
+nnoremap <leader>tp :setlocal paste!<cr>
 nnoremap <leader>tn :setlocal number!<cr>
 nnoremap <leader>tr :setlocal rnu!<cr>
 nnoremap <leader>tl :setlocal list!<cr>
@@ -263,6 +263,8 @@ endfunction
 " vim-gitgutter {{{
 
 set updatetime=200
+
+nnoremap <leader>dp :let g:gitgutter_diff_base = 'HEAD^'<bar>GitGutter<cr>
 
 " }}}
 
